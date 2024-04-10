@@ -1,8 +1,18 @@
 import { Injectable } from '@nestjs/common';
 
+export interface Task {
+  id: number;
+  name: string;
+}
+
 @Injectable()
 export class TasksService {
+  private tasks: Task[] = [];
   getAllTasks() {
-    return 'Obteniendo toas las tareas';
+    return this.tasks;
+  }
+
+  createTask(task: Task) {
+    this.tasks.push(task);
   }
 }
