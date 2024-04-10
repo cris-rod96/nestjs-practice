@@ -1,18 +1,14 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-
-export interface Task {
-  id: number;
-  name: string;
-}
+import { CreateTaskDto } from './dto/create-task.dto';
 
 @Injectable()
 export class TasksService {
-  private tasks: Task[] = [];
+  private tasks = [];
   getAllTasks() {
     return this.tasks;
   }
 
-  createTask(task: Task) {
+  createTask(task: CreateTaskDto) {
     this.tasks.push({
       ...task,
       id: this.tasks.length + 1,

@@ -29,7 +29,7 @@ export class TasksController {
   }
 
   @Post()
-  createTask(@Body() task: any, @Req() req: Request) {
+  createTask(@Body() CreateTaskDto: any, @Req() req: Request) {
     console.log(req.url);
     this.tasksService.createTask(task);
     return 'Task created';
